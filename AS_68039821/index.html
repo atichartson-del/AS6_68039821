@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Midnight Frequency</title>
+
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div id="dynamicBg"></div>
+<div id="particles"></div>
+<canvas id="visualizer"></canvas>
+
+<nav class="navbar">
+    <div class="logo gradient-text">MIDNIGHT</div>
+
+    <ul>
+        <li><a href="#playlist">Playlist</a></li>
+    </ul>
+
+    <!-- NEW IMMORTAL MODE BUTTON -->
+    <button id="modeToggle" class="mode-btn">
+        <span class="moon"></span>
+    </button>
+</nav>
+
+<section class="music-layout" id="playlist">
+
+    <div class="album-side">
+
+        <div class="vinyl-wrapper">
+            <img id="albumCover"
+                 class="album-cover"
+                 src="https://images.unsplash.com/photo-1497032205916-ac775f0649ae"
+                 crossorigin="anonymous">
+            <div class="vinyl"></div>
+        </div>
+
+        <h2 id="albumTitle" class="gradient-text">
+            Midnight Frequency
+        </h2>
+
+        <p>Late Night UK Pop</p>
+
+        <div class="equalizer" id="equalizer">
+            <span></span><span></span><span></span><span></span>
+        </div>
+    </div>
+
+    <div class="track-side">
+
+        <div class="track"
+            data-title="Robbers"
+            data-artist="The 1975"
+            data-src="songs/robbers.mp3">
+            <span>Robbers</span>
+            <span>The 1975</span>
+        </div>
+
+        <div class="track"
+            data-title="Do I Wanna Know?"
+            data-artist="Arctic Monkeys"
+            data-src="songs/doiwannaknow.mp3">
+            <span>Do I Wanna Know?</span>
+            <span>Arctic Monkeys</span>
+        </div>
+
+        <div class="track"
+            data-title="As It Was"
+            data-artist="Harry Styles"
+            data-src="songs/asitwas.mp3">
+            <span>As It Was</span>
+            <span>Harry Styles</span>
+        </div>
+
+        <div class="track"
+            data-title="Levitating"
+            data-artist="Dua Lipa"
+            data-src="songs/levitating.mp3">
+            <span>Levitating</span>
+            <span>Dua Lipa</span>
+        </div>
+
+    </div>
+</section>
+
+<div class="player">
+    <div class="player-info">
+        <h4 id="currentTitle">Select a song</h4>
+        <p id="currentArtist"></p>
+        <div class="time">
+            <span id="currentTime">0:00</span> /
+            <span id="duration">0:00</span>
+        </div>
+    </div>
+
+    <div class="controls">
+        <button id="shuffleBtn">🔀</button>
+        <button id="prevBtn">⏮</button>
+        <button id="playBtn">⏯</button>
+        <button id="nextBtn">⏭</button>
+        <button id="repeatBtn">🔁</button>
+
+        <input type="range" id="progress" min="0" max="100" value="0">
+        <input type="range" id="volume" min="0" max="1" step="0.01" value="1">
+    </div>
+</div>
+
+<audio id="audio"></audio>
+<script src="script.js"></script>
+</body>
+</html>

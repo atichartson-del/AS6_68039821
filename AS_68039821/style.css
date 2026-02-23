@@ -1,0 +1,505 @@
+/* ===============================
+   GOOGLE FONT
+================================= */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+/* ===============================
+   ROOT VARIABLES
+================================= */
+:root{
+    --gold:#c6a75e;
+    --gold-light:#e6c87f;
+    --gold-dark:#8f7436;
+
+    --black:#0c0c0c;
+    --black-soft:#121212;
+    --black-card:#181818;
+
+    --text:#f5f5f5;
+    --text-soft:#aaaaaa;
+
+    --shadow-soft:0 10px 30px rgba(0,0,0,0.5);
+    --shadow-strong:0 25px 60px rgba(0,0,0,0.8);
+}
+
+/* ===============================
+   RESET
+================================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Poppins",sans-serif;
+    background:linear-gradient(120deg,#000,#0c0c0c,#111);
+    background-size:200% 200%;
+    animation:bgMove 15s ease infinite;
+    color:var(--text);
+    overflow-x:hidden;
+}
+
+@keyframes bgMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* ===============================
+   GRADIENT TEXT (FIXED)
+================================= */
+.gradient-text{
+    background:linear-gradient(90deg,var(--gold-light),var(--gold));
+    background-clip:text;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    color:transparent;
+}
+
+/* ===============================
+   NAVBAR
+================================= */
+.navbar{
+    position:fixed;
+    width:100%;
+    padding:22px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(0,0,0,0.9);
+    border-bottom:1px solid rgba(198,167,94,0.2);
+    backdrop-filter:blur(10px);
+    z-index:1000;
+}
+
+.logo{
+    font-size:1.5rem;
+    font-weight:800;
+    letter-spacing:4px;
+}
+
+.navbar ul{
+    display:flex;
+    gap:35px;
+    list-style:none;
+}
+
+.navbar a{
+    text-decoration:none;
+    color:var(--text-soft);
+    font-weight:500;
+    transition:0.3s;
+}
+
+.navbar a:hover{
+    color:var(--gold-light);
+}
+
+/* ===============================
+   HERO
+================================= */
+.hero{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:0 20px;
+    background:
+    linear-gradient(rgba(0,0,0,0.85),rgba(0,0,0,0.95)),
+    url("https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4");
+    background-size:cover;
+    background-position:center;
+}
+
+.hero h1{
+    font-size:3.8rem;
+    font-weight:700;
+}
+
+.hero p{
+    margin-top:18px;
+    font-size:1.1rem;
+    color:var(--text-soft);
+}
+
+/* ===============================
+   BUTTON
+================================= */
+.btn{
+    margin-top:35px;
+    padding:13px 40px;
+    border:none;
+    border-radius:30px;
+    background:linear-gradient(90deg,var(--gold-dark),var(--gold));
+    color:black;
+    font-weight:600;
+    cursor:pointer;
+    transition:all 0.3s ease;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 15px 40px rgba(198,167,94,0.4);
+}
+
+/* ===============================
+   MUSIC LAYOUT
+================================= */
+.music-layout{
+    display:flex;
+    padding:150px 10%;
+    gap:100px;
+    align-items:flex-start;
+}
+
+.album-side{
+    flex:1;
+}
+
+.album-side img{
+    width:100%;
+    border-radius:25px;
+    box-shadow:var(--shadow-strong);
+    transition:0.5s;
+}
+
+.album-side img:hover{
+    transform:scale(1.05);
+    box-shadow:0 40px 80px rgba(198,167,94,0.2);
+}
+
+.track-side{
+    flex:1;
+}
+
+.track{
+    display:flex;
+    justify-content:space-between;
+    padding:20px 15px;
+    border-bottom:1px solid rgba(198,167,94,0.15);
+    border-radius:12px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.track:hover{
+    background:rgba(198,167,94,0.08);
+    transform:translateX(10px);
+}
+
+.track.active{
+    background:linear-gradient(90deg,var(--gold-dark),var(--gold));
+    color:black;
+    font-weight:600;
+}
+
+/* ===============================
+   PLAYER
+================================= */
+.player{
+    position:fixed;
+    bottom:0;
+    width:100%;
+    padding:18px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#000;
+    border-top:1px solid rgba(198,167,94,0.3);
+    backdrop-filter:blur(10px);
+}
+
+.controls{
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+
+.player button{
+    background:linear-gradient(90deg,var(--gold-dark),var(--gold));
+    border:none;
+    color:black;
+    padding:12px 18px;
+    border-radius:50%;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.player button:hover{
+    transform:scale(1.15);
+    box-shadow:0 0 20px rgba(198,167,94,0.5);
+}
+
+/* ===============================
+   PROGRESS BAR (UPGRADED)
+================================= */
+#progress{
+    width:220px;
+    height:6px;
+    border-radius:10px;
+    background:#333;
+    cursor:pointer;
+    appearance:none;
+}
+
+#progress::-webkit-slider-thumb{
+    appearance:none;
+    width:14px;
+    height:14px;
+    border-radius:50%;
+    background:var(--gold);
+    cursor:pointer;
+}
+
+/* ===============================
+   EQUALIZER ANIMATION
+================================= */
+.equalizer{
+    display:flex;
+    gap:5px;
+    margin-top:20px;
+    height:20px;
+}
+
+.equalizer span{
+    width:4px;
+    background:var(--gold);
+    height:5px;
+    animation:equalize 1s infinite ease-in-out;
+    animation-play-state:paused;
+}
+
+.equalizer.playing span{
+    animation-play-state:running;
+}
+
+.equalizer span:nth-child(1){animation-delay:0s;}
+.equalizer span:nth-child(2){animation-delay:0.2s;}
+.equalizer span:nth-child(3){animation-delay:0.4s;}
+.equalizer span:nth-child(4){animation-delay:0.6s;}
+
+@keyframes equalize{
+    0%,100%{height:5px;}
+    50%{height:20px;}
+}
+
+/* ===============================
+   LUXURY GLOW BACKGROUND
+================================= */
+body::before{
+    content:"";
+    position:fixed;
+    top:-200px;
+    right:-200px;
+    width:500px;
+    height:500px;
+    background:radial-gradient(circle, rgba(198,167,94,0.12), transparent 70%);
+    filter:blur(120px);
+    z-index:-1;
+}
+
+/* ===============================
+   RESPONSIVE
+================================= */
+@media(max-width:900px){
+    .music-layout{
+        flex-direction:column;
+        gap:50px;
+    }
+
+    .player{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    #progress{
+        width:100%;
+    }
+}
+
+@media(max-width:600px){
+    .hero h1{
+        font-size:2.5rem;
+    }
+
+    .album-side img{
+        width:90%;
+        margin:auto;
+        display:block;
+    }
+
+    .track{
+        font-size:14px;
+    }
+}
+
+/* ===============================
+   VINYL DISC
+================================= */
+.vinyl-wrapper{
+    position:relative;
+    width:350px;
+    margin:auto;
+    perspective:1000px;
+}
+
+.album-cover{
+    width:100%;
+    border-radius:20px;
+    position:relative;
+    z-index:2;
+}
+
+.vinyl{
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:300px;
+    height:300px;
+    background:radial-gradient(circle,#111 60%,#000 100%);
+    border-radius:50%;
+    transform:translate(-50%,-50%);
+    z-index:1;
+    box-shadow:0 0 40px rgba(0,0,0,0.8);
+}
+
+.vinyl::after{
+    content:"";
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:40px;
+    height:40px;
+    background:var(--gold);
+    border-radius:50%;
+    transform:translate(-50%,-50%);
+}
+
+.vinyl.spin{
+    animation:spin 4s linear infinite;
+}
+
+@keyframes spin{
+    from{transform:translate(-50%,-50%) rotate(0deg);}
+    to{transform:translate(-50%,-50%) rotate(360deg);}
+}
+
+/* ===============================
+   AUDIO VISUALIZER
+================================= */
+#visualizer{
+    position:fixed;
+    bottom:90px;
+    left:0;
+    width:100%;
+    height:100px;
+    z-index:-1;
+}
+
+/* ===============================
+   GOLD PARTICLES
+================================= */
+#particles{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    z-index:-2;
+}
+
+/* ===============================
+   GLASS 3D CARD
+================================= */
+.album-side{
+    transform-style:preserve-3d;
+    transition:transform 0.3s ease;
+}
+
+.album-side:hover{
+    transform:rotateY(8deg) rotateX(5deg);
+}
+
+/* ===============================
+   BLACK DIAMOND BACKGROUND
+================================= */
+#dynamicBg{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-size:cover;
+    background-position:center;
+    filter:blur(120px) brightness(0.4);
+    z-index:-3;
+    transition:all 1s ease;
+}
+
+/* Active mode buttons */
+#shuffleBtn.active,
+#repeatBtn.active{
+    box-shadow:0 0 20px var(--gold);
+    transform:scale(1.1);
+}
+
+/* ===============================
+   IMMORTAL MODE BUTTON
+================================= */
+.mode-btn{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    border:none;
+    cursor:pointer;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+    transition:0.4s;
+    box-shadow:0 0 15px rgba(198,167,94,0.3);
+}
+
+.mode-btn:hover{
+    transform:rotate(20deg) scale(1.1);
+    box-shadow:0 0 25px rgba(198,167,94,0.8);
+}
+
+.moon{
+    width:18px;
+    height:18px;
+    background:linear-gradient(145deg,#fff,#ddd);
+    border-radius:50%;
+    position:relative;
+}
+
+.moon::after{
+    content:"";
+    position:absolute;
+    top:3px;
+    left:6px;
+    width:12px;
+    height:12px;
+    background:#111;
+    border-radius:50%;
+}
+
+/* Light mode */
+body.light{
+    background:#f5f5f5;
+    color:#111;
+}
+
+body.light .navbar{
+    background:#fff;
+}
